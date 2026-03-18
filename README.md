@@ -46,8 +46,13 @@ service.sh — сценарий автоматического запуска п
 action.sh — сценарий управления процессом (Toggle).
 proxy_debug.log — журнал отладки (создается в директории модуля).
 
-## Автор
+## Автор / Cretits
 Разработчик: F1NDLE
+[https://github.com/Flowseal/tg-ws-proxy](FLOWSEAL)
+[https://github.com/TopJohnWo](TopJonhWo) - Magisk & root system
+
+
+
 
 ---
 Отказ от ответственности: Данное программное обеспечение предоставляется "как есть" исключительно в ознакомительных целях.
