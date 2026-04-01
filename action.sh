@@ -1,30 +1,37 @@
 #!/system/bin/sh
 MODDIR=${0%/*}
-LOGFILE="$MODDIR/proxy_debug.log"
-SCRIPT_PATH="$MODDIR/lib/proxy/tg_ws_proxy.py"
+BIN=$MODDIR/python/bin/python3
+SCRIPT=$MODDIR/tg_ws_proxy.py
+LOG=$MODDIR/proxy.log
+PID=$(pgrep -f "$SCRIPT")
 
-export PYTHONHOME="$MODDIR/python"
-export PYTHONPATH="$MODDIR/python/lib/python3.13:$MODDIR/lib"
-export LD_LIBRARY_PATH="$MODDIR/python/lib:/system/lib64:/system/lib"
-
-PID=$(pgrep -f "tg_ws_proxy.py")
-
-if [ ! -z "$PID" ]; then
-    echo "СТАТУС: РАБОТАЕТ (PID: $PID)"
-    echo "Останавливаю..."
-    kill $PID
-    echo "Остановлен."
-else
-    echo "СТАТУС: НЕ ЗАПУЩЕН"
-    echo "Запуск..."
-    chmod +x "$MODDIR/python/bin/python3"
-    $MODDIR/python/bin/python3 "$SCRIPT_PATH" --port 1080 >> "$LOGFILE" 2>&1 &
-    sleep 2
-    if pgrep -f "tg_ws_proxy.py" > /dev/null; then
-        echo "Успешно запущен!"
+if [ -z "$PID" ]; then
+    echo "TG PROXY, by финдл"
+    export PYTHONPATH=$MODDIR/python/lib/python3.11/site-packages:$MODDIR/python/lib/python3.11
+    $BIN $SCRIPT --port 1443 --host 127.0.0.1 > $LOG 2>&1 &
+    
+    sleep 3
+    
+    NEW_PID=$(pgrep -f "$SCRIPT")
+    if [ -n "$NEW_PID" ]; then
+        echo "СТАТУС: ЗАПУЩЕН"
+        
+        LINK=$(grep -o "tg://proxy?server=[^ ]*" "$LOG" | tail -n 1)
+        
+        if [ -n "$LINK" ]; then
+            am start --user 0 -a android.intent.action.VIEW -d "$LINK" >/dev/null 2>&1
+            echo "Запуск"
+            echo "ПРОКСИ ОТКРЫТ В TELEGRAM"
+            echo "$LINK"
+            echo "Открытие"
+        else
+            echo "ошибка: ссылка не найдена"
+        fi
     else
-        echo "ОШИБКА ЗАПУСКА. Лог:"
-        tail -n 10 "$LOGFILE"
+        echo "ошибка запуска"
     fi
+else
+    echo "TG PROXY, by финдл"
+    kill "$PID"
+    echo "СТАТУС: ОСТАНОВЛЕН"
 fi
-
