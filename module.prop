@@ -1,8 +1,8 @@
 id=tg_ws_proxy_f1ndle
 name=TG WS Proxy
-version=8
-versionCode=8
+version=11
+versionCode=11
 author=F1NDLE
-description=Прокси для Telegram через WebSocket
-updatejson=https://raw.githubusercontent.com/F1NDLE/tg_ws_proxy_magisk/refs/heads/main/update.json
+description=Модуль для обхода замедления Telegram через прокси модуля (MTProto)
+updateJson=https://raw.githubusercontent.com/F1NDLE/tg_ws_proxy_magisk/refs/heads/main/update.json
 support=https://t.me/F1NDLE_cn
