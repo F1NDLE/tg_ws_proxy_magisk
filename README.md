@@ -23,3 +23,5 @@
 **Maintained by [F1NDLE](https://github.com/F1NDLE)**
 
 **[FLOWSEAL](https://github.com/FLOWSEAL)**
+
+**[valnesfjord](https://github.com/valnesfjord)** - For rust binary
