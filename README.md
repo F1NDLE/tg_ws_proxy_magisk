@@ -1,6 +1,6 @@
 # TG WS PROXY MAGISK by F1NDLE
 
-Высокопроизводительный Telegram MTProto WebSocket Bridge Proxy, переписанный на **Rust**.
+Высокопроизводительный Telegram MTProto WebSocket Bridge Proxy, переписанный на **Rust**. Данный модуль позволит вам обойти блокировку Телеграм от РКН
 
 ## Структура
 * **system/bin/tg-ws-proxy** - бинарник на Rust.
