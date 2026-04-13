@@ -1,6 +1,6 @@
 # TG-WS Proxy Magisk
 
-Rust-реализация MTProto-прокси через WebSocket для Android (Magisk/KernelSU/APatch). Идеально для обхода блокировок, когда обычный TCP до Telegram заблокирован.
+Rust-реализация MTProto-прокси через WebSocket для Android (Magisk/KernelSU/APatch). Идеально для обхода блокировок, когда обычный TCP до Telegram заблокирован (а сейчас как такое, ркн душит)
 
 ## Особенности
 * Rust-core: Работает быстро и потребляет мало ресурсов.
