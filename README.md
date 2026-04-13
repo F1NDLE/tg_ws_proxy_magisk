@@ -41,6 +41,13 @@ Rust-реализация MTProto-прокси через WebSocket для Andro
 Если прокси не запускается, ищи причину здесь:
 `/data/adb/modules/tg_ws_proxy_magisk/proxy.log`
 
+## Поддержать автора
+ЮMoney - 4100119389701453
+
+T-Банк - 2200701962437361
+
+Заранее благодарен каждому донату :)
+
 ---
 Binary: [tg-ws-proxy-rs](https://github.com/n0id/tg-ws-proxy-rs)  
 Module by: [F1NDLE](https://github.com/F1NDLE)
